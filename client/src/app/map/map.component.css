@@ -1,0 +1,21 @@
+#main-container {
+  border: solid 1px;
+}
+
+.sebm-google-map-container {
+  height: 550px;
+}
+
+.col-md-4, .col-md-8 {
+  padding: 0;
+}
+
+.search {
+  border-bottom: solid 1px;
+  padding: 5px 0;
+  margin: 0;
+}
+
+.form-group {
+  margin: 0;
+}
