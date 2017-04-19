@@ -13,10 +13,12 @@ import { MapComponent } from './map/map.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'map', component: MapComponent}
 ]
 
@@ -26,17 +28,18 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomeComponent,
     MapComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
     RouterModule.forRoot(appRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCbEvZngxUeOuML-hzWUWnq88IZjtXOgn0'
-    }),
-    FlashMessagesModule
+    })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

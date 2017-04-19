@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
       name: this.name,
       username: this.username,
       email: this.email,
-      password: this.password
+      password: this.password,
+      loggedin: true
     }
 
     /*
@@ -39,11 +40,11 @@ export class RegisterComponent implements OnInit {
     this.authService.registerUser(user).subscribe(data => {
       if(data.success) {
         // this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
-        console.log("Success!");
+        console.log(data.msg);
         this.router.navigate(['/map']);
       } else {
         // this.flashMessagesService.show('Invalid registeration', {cssClass: 'alert-danger', timeout: 3000});
-        console.log("Error!");
+        console.log(data.msg);
         this.router.navigate(['/register']);
       }
     });
