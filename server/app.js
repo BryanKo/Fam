@@ -31,7 +31,7 @@ const port = 3000;
 const app = express();
 
 // Connect to database
-mongoose.Promise = require('bluebird');
+// mongoose.Promise = require('bluebird');
 mongoose.connect(config.database);
 
 // On connection
