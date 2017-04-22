@@ -26,7 +26,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const users = require('./routes/users');
-const port = 3000;
+const port = 8080;
 
 const app = express();
 
