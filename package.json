@@ -1,0 +1,40 @@
+{
+  "name": "fam",
+  "version": "1.0.0",
+  "description": "Web application that allows friends to coordinate and plan to do something new near the user.",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "connect-flash": "*",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.15.2"
+    "express-handlebars": "*",
+    "express-messages": "*",
+    "express-session": "*",
+    "express-validator": "*",
+    "mongodb": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-http": "*",
+    "passport-local": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanKo/Fam.git"
+  },
+  "author": "CMPS115 Fam",
+  "license": "ISC",
+  "dependencies": {
+    
+  }
+  "bugs": {
+    "url": "https://github.com/BryanKo/Fam/issues"
+  },
+  "homepage": "https://github.com/BryanKo/Fam#readme"
+}
