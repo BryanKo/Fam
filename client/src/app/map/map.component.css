@@ -1,0 +1,21 @@
+#main-container {
+  /*border: solid 1px;*/
+}
+
+agm-map {
+  height: 625px;
+}
+
+.col-md-4, .col-md-8 {
+  padding: 0;
+}
+
+.search {
+  border-bottom: solid 1px;
+  padding: 7px;
+  margin: 5px;
+}
+
+.form-group {
+  margin: 0;
+}
