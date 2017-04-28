@@ -26,12 +26,14 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const users = require('./routes/users');
-const port = 8080;
+const port = 3000;
 
 const app = express();
 
+// Without this you get Mongoose: mPromise deprecation warning
+mongoose.Promise = require('bluebird');
+
 // Connect to database
-// mongoose.Promise = require('bluebird');
 mongoose.connect(config.database);
 
 // On connection
@@ -44,19 +46,22 @@ mongoose.connection.on('error', (err) => {
   console.log('Database error: ' + err);
 });
 
-// Set static folder
+/*
+express.static(root, [options])
+This is the only built-in middleware function in Express. The root argument refers to the root directory from which the static assets are to be served. The file to serve will be determined by combining  req.url with the provided root directory. When a file is not found, instead of sending a 404 response, this module will instead call next() to move on to the next middleware, allowing for stacking and fall-backs.
+*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Cors: Third-party middleware
 app.use(cors());
 
 // Body-parser: Third-party middleware
+// Parse requests of form application/json
 app.use(bodyParser.json());
 
 // Passport: Third-party middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
 require('./config/passport')(passport);
 
 // Built-in middleware
