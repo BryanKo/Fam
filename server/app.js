@@ -67,10 +67,9 @@ require('./config/passport')(passport);
 // Built-in middleware
 app.use('/users', users);
 
-app.get('/', (req, res) => {
-  res.send('Index Page');
-});
-
+/*
+'*' catches all routes and points to public/index.html which is going to be the html file that will be rendered after building our application using 'ng build'
+*/
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 })
