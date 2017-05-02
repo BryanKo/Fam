@@ -23,6 +23,18 @@ export class AuthService {
     .map(res => res.json());
   }
 
+<<<<<<< HEAD
+=======
+  // Service for logging in user
+  loginUser(user) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post('http://localhost:3000/users/authenticate', user, {headers: headers})
+    .map(res => res.json());
+  }
+
+>>>>>>> katakeda
   // Service for displaying user profile
   getProfile() {
     let headers = new Headers();
