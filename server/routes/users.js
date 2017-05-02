@@ -73,10 +73,7 @@ router.post('/authenticate', (req, res) => {
         });
         res.json({
           success: true,
-<<<<<<< HEAD
-=======
           msg: 'Logged in!',
->>>>>>> katakeda
           token: 'JWT ' + token,
           user: {
             id: user._id,

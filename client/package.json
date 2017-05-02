@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "client",
-=======
   "name": "fam-client",
->>>>>>> katakeda
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {

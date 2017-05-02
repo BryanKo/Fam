@@ -11,17 +11,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { MapComponent } from './map/map.component';
 import { RegisterComponent } from './register/register.component';
-<<<<<<< HEAD
-
-import { AuthService } from './auth.service';
-import { ProfileComponent } from './profile/profile.component';
-
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'map', component: MapComponent}
-=======
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -44,7 +33,6 @@ const appRoutes: Routes = [
   {path: 'map', component: MapComponent},
   {path: 'profile', component: ProfileComponent},
   {path: '**', component: PageNotFoundComponent}
->>>>>>> katakeda
 ]
 
 @NgModule({
@@ -54,13 +42,9 @@ const appRoutes: Routes = [
     HomeComponent,
     MapComponent,
     RegisterComponent,
-<<<<<<< HEAD
-    ProfileComponent
-=======
     ProfileComponent,
     PageNotFoundComponent,
     LoginComponent
->>>>>>> katakeda
   ],
   imports: [
     BrowserModule,

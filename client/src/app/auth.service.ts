@@ -23,8 +23,6 @@ export class AuthService {
     .map(res => res.json());
   }
 
-<<<<<<< HEAD
-=======
   // Service for logging in user
   loginUser(user) {
     let headers = new Headers();
@@ -34,7 +32,6 @@ export class AuthService {
     .map(res => res.json());
   }
 
->>>>>>> katakeda
   // Service for displaying user profile
   getProfile() {
     let headers = new Headers();

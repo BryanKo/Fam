@@ -1,25 +1,15 @@
 #main-container {
   /*border: solid 1px;*/
-<<<<<<< HEAD
-}
-
-agm-map {
-  height: 625px;
-=======
   height: 93vh;
 }
 
 agm-map {
   height: 100%;
->>>>>>> katakeda
 }
 
 .col-md-4, .col-md-8 {
   padding: 0;
-<<<<<<< HEAD
-=======
   height: 100%;
->>>>>>> katakeda
 }
 
 .search {

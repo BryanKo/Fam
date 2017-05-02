@@ -25,11 +25,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-  onRegister() {
-=======
   onSubmit() {
->>>>>>> katakeda
     const user = {
       name: this.name,
       username: this.username,
