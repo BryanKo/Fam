@@ -239,12 +239,12 @@ var LoginComponent = (function () {
         this.authService.loginUser(user).subscribe(function (data) {
             if (data.success) {
                 // this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
-                console.log(data.msg);
+                alert(data.msg);
                 _this.router.navigate(['/map']);
             }
             else {
                 // this.flashMessagesService.show('Invalid registeration', {cssClass: 'alert-danger', timeout: 3000});
-                console.log(data.msg);
+                alert(data.msg);
                 _this.router.navigate(['/login']);
             }
         });
