@@ -11,11 +11,12 @@ const UserSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   username: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
@@ -32,29 +33,39 @@ To use our schema definition, we need to convert our blogSchema into a Model we 
 */
 const User = module.exports = mongoose.model('User', UserSchema);
 
+// Encapsulates mongoose's findById() method
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 }
 
+// Encapsulates mongoose's findOne() method
 module.exports.getUserByUsername = function(username, callback) {
   const query = {username: username}
   User.findOne(query, callback);
 }
 
+
+// Encapsulates mongoose's save() method with callback to hash password
 module.exports.addUser = function(newUser, callback){
-  // bcrypt.genSalt(10, (err, salt) => {
-  //   bcrypt.hash(newUser.password, salt, (err, hash) => {
-  //     if(err) throw err;
-  //     newUser.password = hash;
-  //     newUser.save(callback);
-  //   })
-  // });
-  newUser.save(callback);
+  // bcrypt used for encryption of password
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(newUser.password, salt, (err, hash) => {
+      if(err) {
+        throw err;
+      } else {
+        newUser.password = hash;
+        // This calls mongoose method to save newUser to db
+        newUser.save(callback);
+      }
+    });
+  });
 }
 
 module.exports.comparePassword = function(candidatePassword, hash, callback) {
   bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
-    if(err) throw error;
+    if(err) {
+      throw error;
+    }
     callback(null, isMatch);
   });
 }
