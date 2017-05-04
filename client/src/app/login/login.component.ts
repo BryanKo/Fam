@@ -32,12 +32,12 @@ export class LoginComponent implements OnInit {
     */
     this.authService.loginUser(user).subscribe(data => {
       if(data.success) {
-        // this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
-        console.log(data.msg);
+        //this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
+	alert(data.msg);
         this.router.navigate(['/map']);
       } else {
-        // this.flashMessagesService.show('Invalid registeration', {cssClass: 'alert-danger', timeout: 3000});
-        console.log(data.msg);
+        //this.flashMessagesService.show('Invalid registeration', {cssClass: 'alert-danger', timeout: 3000});
+	alert(data.msg);
         this.router.navigate(['/login']);
       }
     });
