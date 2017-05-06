@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecoService } from '../reco.service';
 
 @Component({
   selector: 'app-map',
@@ -7,15 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  lat: number = 36.9914;
-  lng: number = -122.0609;
+  lat: number = 36.9910;
+  lng: number = -122.0490;
   zoom: number = 13;
 
-  constructor() { }
+  recos: any;
+
+  constructor(
+    private router: Router,
+    private recoService: RecoService
+  ) { }
 
   ngOnInit() {
-    
+    this.recoService.getRecos().subscribe(recos => {
+      console.log(recos);
+      this.recos = recos;
+    });
   }
-
 
 }
