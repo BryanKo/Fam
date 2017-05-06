@@ -91,14 +91,6 @@ router.post('/authenticate', (req, res) => {
 
 // Profile
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res) => {
-  // User.findOne({loggedin: true}, (err, user) => {
-  //   if(err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(user);
-  //     res.json(user);
-  //   }
-  // });
   console.log("Success");
   res.json({user: req.user});
 });
