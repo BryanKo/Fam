@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecoService } from '../reco.service';
 
@@ -15,6 +15,9 @@ export class MapComponent implements OnInit {
 
   recos: any;
 
+  @Output()
+  listMap: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(
     private router: Router,
     private recoService: RecoService
@@ -22,9 +25,13 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     this.recoService.getRecos().subscribe(recos => {
-      console.log(recos);
       this.recos = recos;
+      this.listMap.emit({recos: this.recos});
     });
+  }
+
+  markerClick(reco) {
+
   }
 
 }

@@ -23,3 +23,12 @@
     </div>
   </form>
 </div>
+<div class="search-results">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let reco of recosList">
+      {{reco.name}}<br>
+      Reviews<br>
+      Picture
+    </li>
+  </ul>
+</div>

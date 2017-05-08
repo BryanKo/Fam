@@ -1,8 +1,8 @@
 <div id="main-container" class="row">
   <div class="col-md-4">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [recosList]="recos"></app-sidebar>
   </div>
   <div class="col-md-8">
-    <app-map></app-map>
+    <app-map (listMap)="listMap($event)"></app-map>
   </div>
 </div>

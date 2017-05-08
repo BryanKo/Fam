@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  recos: any;
+
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  listMap(recoList) {
+    this.recos = recoList.recos;
   }
 
 }
