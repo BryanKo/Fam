@@ -1,5 +1,5 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <agm-marker *ngFor="let reco of recos" [latitude]="reco.lat" [longitude]="reco.lng" (markerClick)="markerClick(reco)">
+  <agm-marker *ngFor="let reco of recosList" [latitude]="reco.lat" [longitude]="reco.lng" (markerClick)="markerClick(reco)">
     <agm-info-window>{{reco.name}}</agm-info-window>
   </agm-marker>
 </agm-map>

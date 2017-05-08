@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecoService } from '../reco.service';
 
 @Component({
   selector: 'app-main',
@@ -9,14 +11,15 @@ export class MainComponent implements OnInit {
 
   recos: any;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private recoService: RecoService
+  ) { }
 
   ngOnInit() {
-
-  }
-
-  listMap(recoList) {
-    this.recos = recoList.recos;
+    this.recoService.getRecos().subscribe(recos => {
+      this.recos = recos;
+    });
   }
 
 }
