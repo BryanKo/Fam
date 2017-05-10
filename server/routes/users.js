@@ -83,7 +83,7 @@ router.post('/authenticate', (req, res) => {
           }
         });
       } else {
-        return res.json({success: false, msg: 'Wrong password'});
+        return res.json({success: false, msg: 'Invalid password'});
       }
     });
   });
