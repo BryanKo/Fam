@@ -1,0 +1,32 @@
+<!--
+See https://angular.io/docs/ts/latest/guide/template-syntax.html#!#binding-syntax for data binding syntax.
+
+The RouterLink directives on the anchor tags give the router control over those elements. The navigation paths are fixed, so you can assign a string to the routerLink (a "one-time" binding).
+
+The RouterLinkActive directive on each anchor tag helps visually distinguish the anchor for the currently selected "active" route. The router adds the active CSS class to the element when the associated RouterLink becomes active. You can add this directive to the anchor or to its parent element.
+-->
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="../assets/fam_logo.ico" alt="Fam" /></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/map">Map</a></li>
+        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/profile">Profile</a></li>
+        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/register">Register</a></li>
+        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/login">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
