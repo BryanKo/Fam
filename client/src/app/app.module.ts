@@ -7,15 +7,18 @@ import { AgmCoreModule } from '@agm/core';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { AuthService } from './auth.service';
+import { RecoService } from './reco.service';
 
 /*
 The appRoutes array of routes describes how to navigate. Pass it to the RouterModule.forRoot method in the module imports to configure the router. Each Route maps a URL path to a component. There are no leading slashes in the path.
@@ -28,9 +31,9 @@ The ** path in the last route is a wildcard. The router will select this route i
 */
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'map', component: MainComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'map', component: MapComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
@@ -38,13 +41,15 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    MainComponent,
     HomeComponent,
+    NavbarComponent,
     MapComponent,
+    SidebarComponent,
+    LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PageNotFoundComponent,
-    LoginComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,7 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyBiu2zNzWivvQnbjTCnf0lHkqYqS8B0A7o'
     })
   ],
-  providers: [AuthService],
+  providers: [AuthService, RecoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

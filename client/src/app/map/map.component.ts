@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -7,15 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  lat: number = 36.9914;
-  lng: number = -122.0609;
+  lat: number = 36.9910;
+  lng: number = -122.0490;
   zoom: number = 13;
+
+  @Input()
+  recosList: any;
 
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
+  markerClick(reco) {
+
+  }
 
 }
