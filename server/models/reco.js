@@ -13,6 +13,9 @@ const RecoSchema = mongoose.Schema({
     type: Number,
     required: true
   },
+  reviews:{
+    type: []
+  }
 });
 
 const Reco = module.exports = mongoose.model('Reco', RecoSchema);
