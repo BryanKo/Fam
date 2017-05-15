@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
+
 export class MapComponent implements OnInit {
 
   lat: number = 36.9914;
   lng: number = -122.0609;
   zoom: number = 13;
+  reviewBool = false;
+
 
   constructor() { }
 
@@ -17,5 +20,12 @@ export class MapComponent implements OnInit {
     
   }
 
+  onReview(){
+  	this.reviewBool = true;
+  }
 
-}
+  cancelReview() {
+  	this.reviewBool = false;
+  }
+
+  }
