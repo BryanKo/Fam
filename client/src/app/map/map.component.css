@@ -1,3 +1,12 @@
 agm-map {
-  height: 93vh;
+  height: 100%;
+}
+
+.rev-list {
+  width: 500px;
+  overflow-y: scroll;
+}
+
+.glyphicon-star {
+  color: gold;
 }
