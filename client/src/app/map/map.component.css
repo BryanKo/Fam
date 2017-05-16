@@ -1,10 +1,10 @@
 agm-map {
-  height: 93vh;
+  height: 100%;
 }
 
 .rev-list {
   width: 500px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .glyphicon-star {
