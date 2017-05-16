@@ -7,12 +7,23 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  reviewBool: boolean;
+
   @Input()
   recosList: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.reviewBool = false;
+  }
+
+  onReview(){
+  	this.reviewBool = true;
+  }
+
+  cancelReview() {
+  	this.reviewBool = false;
   }
 
 }
