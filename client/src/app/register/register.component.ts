@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRegister() {
+  onSubmit() {
     const user = {
       name: this.name,
       username: this.username,

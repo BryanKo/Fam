@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #main-container {
   /*border: solid 1px;*/
   height: 94.5vh;
@@ -10,14 +11,17 @@ agm-map {
 .col-md-4, .col-md-8 {
   padding: 0;
   height: 100%;
+=======
+agm-map {
+  height: 100%;
+>>>>>>> master
 }
 
-.search {
-  border-bottom: solid 1px;
-  padding: 7px;
-  margin: 5px;
+.rev-list {
+  width: 500px;
+  overflow-y: scroll;
 }
 
-.form-group {
-  margin: 0;
+.glyphicon-star {
+  color: gold;
 }

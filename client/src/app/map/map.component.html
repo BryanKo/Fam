@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="main-container" class="row">
   <div class="col-md-4">
     <div class="search">
@@ -109,3 +110,21 @@
     </agm-map>
   </div>
 </div>
+=======
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker *ngFor="let reco of recosList" [latitude]="reco.lat" [longitude]="reco.lng" (markerClick)="markerClick(reco)">
+    <agm-info-window class="info-window">
+      <h3 class="page-header">{{reco.name}}</h3>
+      <ul class="list-group rev-list">
+        <li class="list-group-item" *ngFor="let rev of reco.reviews">
+          <p>{{rev.title}}</p>
+          <p>
+            <span *ngFor="let i of starArr.slice(0,rev.stars)" class="glyphicon glyphicon-star"></span>
+          </p>
+          <p>{{rev.body}}</p>
+        </li>
+      </ul>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+>>>>>>> master
