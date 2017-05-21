@@ -13,7 +13,7 @@ export class RecoService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://localhost:8080/recos/getReco', {headers: headers})
+    return this.http.get('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/recos/getReco', {headers: headers})
     .map(res => res.json());
   }
 
