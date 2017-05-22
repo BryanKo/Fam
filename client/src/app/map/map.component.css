@@ -1,20 +1,5 @@
-<<<<<<< HEAD
-#main-container {
-  /*border: solid 1px;*/
-  height: 94.5vh;
-}
-
 agm-map {
   height: 100%;
-}
-
-.col-md-4, .col-md-8 {
-  padding: 0;
-  height: 100%;
-=======
-agm-map {
-  height: 100%;
->>>>>>> master
 }
 
 .rev-list {

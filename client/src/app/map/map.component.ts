@@ -27,17 +27,9 @@ export class MapComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
-  onReview(){
-  	this.reviewBool = true;
-  }
-
-  cancelReview() {
-  	this.reviewBool = false;
-=======
   markerClick(reco) {
 
->>>>>>> master
-  }
 
   }
+
+}
