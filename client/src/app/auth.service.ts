@@ -37,7 +37,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/users/profile', {headers: headers})
+    return this.http.get('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/profile', {headers: headers})
     .map(res => res.json());
   }
 

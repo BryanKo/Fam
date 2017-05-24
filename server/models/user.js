@@ -29,7 +29,7 @@ const UserSchema = mongoose.Schema({
 });
 
 /*
-To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema)
+To use our schema definition, we need to convert our UserSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema)
 */
 const User = module.exports = mongoose.model('User', UserSchema);
 

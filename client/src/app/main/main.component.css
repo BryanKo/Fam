@@ -1,0 +1,8 @@
+#main-container {
+  height: 93vh;
+}
+
+.col-md-4, .col-md-8 {
+  padding: 0;
+  height: 100%;
+}

@@ -26,6 +26,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const users = require('./routes/users');
+const recos = require('./routes/recos');
 const port = 8080;
 
 const app = express();
@@ -66,6 +67,7 @@ require('./config/passport')(passport);
 
 // Built-in middleware
 app.use('/users', users);
+app.use('/recos', recos);
 
 /*
 '*' catches all routes and points to public/index.html which is going to be the html file that will be rendered after building our application using 'ng build'

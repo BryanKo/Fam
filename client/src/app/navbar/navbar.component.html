@@ -5,8 +5,7 @@ The RouterLink directives on the anchor tags give the router control over those 
 
 The RouterLinkActive directive on each anchor tag helps visually distinguish the anchor for the currently selected "active" route. The router adds the active CSS class to the element when the associated RouterLink becomes active. You can add this directive to the anchor or to its parent element.
 -->
-
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -15,12 +14,9 @@ The RouterLinkActive directive on each anchor tag helps visually distinguish the
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="../assets/fam_logo.ico" alt="Fam" /></a>
+      <a class="navbar-brand" routerLinkActive="active" routerLinkActiveOptions="{exact: true}" routerLink="/"><img src="../assets/fam_logo.ico" alt="Fam" /></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/">Home</a></li>
-      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/map">Map</a></li>
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/profile">Profile</a></li>

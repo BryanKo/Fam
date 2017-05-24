@@ -1,23 +1,12 @@
-#main-container {
-  /*border: solid 1px;*/
-  height: 93vh;
-}
-
 agm-map {
   height: 100%;
 }
 
-.col-md-4, .col-md-8 {
-  padding: 0;
-  height: 100%;
+.rev-list {
+  width: 500px;
+  overflow-y: scroll;
 }
 
-.search {
-  border-bottom: solid 1px;
-  padding: 7px;
-  margin: 5px;
-}
-
-.form-group {
-  margin: 0;
+.glyphicon-star {
+  color: gold;
 }

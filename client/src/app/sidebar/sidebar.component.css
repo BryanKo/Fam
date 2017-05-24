@@ -1,0 +1,17 @@
+.search {
+  border-bottom: solid 1px;
+  padding: 7px;
+  margin: 5px;
+  height: 20%;
+}
+
+.form-group {
+  margin: 0;
+}
+
+.search-results {
+  padding: 7px;
+  margin: 5px;
+  height: 78%;
+  overflow-y: scroll;
+}
