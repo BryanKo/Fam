@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +7,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  address: string;
+
   reviewBool: boolean;
 
   @Input()
   recosList: any;
 
-  constructor() { }
+  @Output()
+  notify: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(
+    
+  ) { }
 
   ngOnInit() {
     this.reviewBool = false;
@@ -24,6 +31,10 @@ export class SidebarComponent implements OnInit {
 
   cancelReview() {
   	this.reviewBool = false;
+  }
+
+  onSearch() {
+    this.notify.emit(this.address);
   }
 
 }
