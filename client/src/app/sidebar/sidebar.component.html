@@ -44,21 +44,28 @@
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Title:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="eg. Santa Cruz" />
+        <input type="text" class="form-control" placeholder="eg. Santa Cruz Boardwalk" [(ngModel)]="name" name="name" />
       </div>
     </div>
     <br>
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Location: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="eg. Santa Cruz" />
+        <input type="text" class="form-control" placeholder="eg. 400 Beach St, Santa Cruz, CA 95060" [(ngModel)]="loc" name="loc" />
+      </div>
+    </div>
+    <br>
+    <div class="form-group form-group-sm row text-center">
+      <label class="col-sm-2 control-label">Star :</label>
+      <div class="col-sm-10">
+        <p><input type="text" placeholder="0-5" [(ngModel)]="star" name="star" /> /5</p>
       </div>
     </div>
     <br>
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Category: </label>
       <div class="col-sm-10">
-        <select class="form-control">
+        <select class="form-control" [(ngModel)]="categ" name="categ">
           <option>Hikes</option>
           <option>Restaurants</option>
           <option>Parks</option>
@@ -70,17 +77,18 @@
     <div class="form-group form-group-sm row text-center">
       <label class="col-sm-2 control-label">Description:</label>
       <div class="col-sm-10">
-        <textarea rows="5" class="form-control" placeholder="eg. Description of location/activities/accessability/etc."></textarea>
+        <textarea rows="5" class="form-control" placeholder="Description of location/ activities/ accessability/ etc." [(ngModel)]="desc" name="desc"></textarea>
       </div>
     </div>
     <br>
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Direction:</label>
       <div class="col-sm-10">
-        <textarea rows="5" class="form-control" placeholder="eg. Description of location/activities/accessability/etc."></textarea>
+        <textarea rows="5" class="form-control" placeholder="How do you get there?" [(ngModel)]="direct" name="direct"></textarea>
       </div>
     </div>
     <br>
+    <!--
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Pictures:</label>
       <div class="col-sm-10">
@@ -88,6 +96,7 @@
       </div>
     </div>
     <br>
+    -->
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Pictures:</label>
       <div class="col-sm-10">
@@ -97,7 +106,7 @@
     <br>
     <div class="form-group form-group-sm row text-center">
       <div class="col-sm-10 col-sm-offset-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button (click)="submitReview()" class="btn btn-primary">Submit</button>
         <button (click)="cancelReview()" class="btn btn-danger">Cancel</button>
       </div>
     </div>

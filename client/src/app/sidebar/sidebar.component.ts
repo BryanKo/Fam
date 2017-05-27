@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecoService } from '../reco.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,12 +10,25 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  name: String;
+  loc: Number;
+  lat: Number;
+  lng: Number;
+  star: Number;
+  categ: String;
+  desc: String;
+  direct: String;
+
+  constructor(
+    private recoService: RecoService,
+    private flashMessagesService: FlashMessagesService,
+    private router: Router
+  ) { }
+
   reviewBool: boolean;
 
   @Input()
   recosList: any;
-
-  constructor() { }
 
   ngOnInit() {
     this.reviewBool = false;
@@ -26,4 +42,29 @@ export class SidebarComponent implements OnInit {
   	this.reviewBool = false;
   }
 
+  submitReview() {
+    // swapped name/name and loc/loc so that the name of the location is the adr while the title will be the name of the review
+    const reviewLoc = {
+      name: this.loc,
+      loc: this.name,
+      lat: this.lat,
+      lng: this.lng,
+      star: this.star,
+      categ: this.categ,
+      desc: this.desc,
+      direct: this.direct,
+    }
+
+    this.recoService.addReview(reviewLoc).subscribe(data => {
+      if(data.success) {
+        // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
+        console.log(data.msg);
+        this.router.navigate(['/map']);
+      } else {
+        // this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
+        console.log(data.msg);
+        this.router.navigate(['/map']);
+      }
+    });
+  }
 }

@@ -7,12 +7,18 @@ const router = express.Router();
 router.post('/addReco', (req, res) => {
 
   let newReco = new Reco({
-    name: req.body.name,
+    name: req.body.loc,
+    title: req.body.name,
     lat: req.body.lat,
-    lng: req.body.lng
+    lng: req.body.lng,
+    stars: req.body.star,
+    categ: req.body.categ,
+    desc: req.body.desc,
+    direct: req.body.direct
   });
 
   Reco.addReco(newReco, (err, user) => {
+    console.log(newReco.name);
     if(err) {
       res.json({success: false, msg: 'Failed to add new Reco'});
     } else {
