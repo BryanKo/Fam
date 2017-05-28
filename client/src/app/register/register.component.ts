@@ -23,6 +23,9 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('user')) {
+      this.router.navigate(['/map'])
+    }
   }
 
   onSubmit() {
@@ -39,11 +42,10 @@ export class RegisterComponent implements OnInit {
     */
     this.authService.registerUser(user).subscribe(data => {
       if(data.success) {
-        // this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
+
         console.log(data.msg);
-        this.router.navigate(['/map']);
+        this.router.navigate(['/login']);
       } else {
-        // this.flashMessagesService.show('Invalid registeration', {cssClass: 'alert-danger', timeout: 3000});
         console.log(data.msg);
         this.router.navigate(['/register']);
       }

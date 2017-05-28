@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('user')) {
+      this.router.navigate(['/map'])
+    }
   }
 
   onSubmit() {
@@ -34,13 +37,9 @@ export class LoginComponent implements OnInit {
     */
     this.authService.loginUser(user).subscribe(data => {
       if(data.success) {
-        // this.flashMessagesService.show('You are now registered', {cssClass: 'alert-success', timeout: 3000});
-        console.log(data.msg); // can comment out after testing is complete
+        this.authService.storeUserInfo(JSON.stringify(data.user));
         this.router.navigate(['/map']);
       } else {
-        // this.flashMessagesService.show('Invalid registration', {cssClass: 'alert-danger', timeout: 3000});
-        // could technically comment this line out and not log anything to console. Only for testing purposes
-        console.log(data.msg);
         alert("Invalid username or password. Please try again.");
         this.router.navigate(['/login']);
       }

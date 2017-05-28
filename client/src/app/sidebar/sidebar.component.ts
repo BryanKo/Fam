@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+<<<<<<< HEAD
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecoService } from '../reco.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
@@ -25,10 +26,19 @@ export class SidebarComponent implements OnInit {
     private router: Router
   ) { }
 
+  // Passes address from sidebar -> main -> map
+  address: string;
+
+  // Flag to toggle review form
   reviewBool: boolean;
 
+  // Gets the list of all recos from MainComponent
   @Input()
   recosList: any;
+
+  @Output()
+  notify: EventEmitter<string> = new EventEmitter<string>();
+
 
   ngOnInit() {
     this.reviewBool = false;

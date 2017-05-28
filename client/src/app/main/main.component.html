@@ -1,8 +1,8 @@
 <div id="main-container" class="row">
   <div class="col-md-4">
-    <app-sidebar [recosList]="recos"></app-sidebar>
+    <app-sidebar (notify)="onNotify($event) "[recosList]="recos"></app-sidebar>
   </div>
   <div class="col-md-8">
-    <app-map [recosList]="recos"></app-map>
+    <app-map [lat]="lat" [lng]="lng" [recosList]="recos"></app-map>
   </div>
 </div>

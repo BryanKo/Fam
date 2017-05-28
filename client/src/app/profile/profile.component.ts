@@ -17,9 +17,11 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.authService.getProfile().subscribe(user => {
-      this.user = user;
-    });
+    if(!localStorage.getItem('user')) {
+      this.router.navigate(['/']);
+    }
+
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
 }
