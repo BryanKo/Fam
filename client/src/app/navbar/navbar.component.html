@@ -17,10 +17,10 @@ The RouterLinkActive directive on each anchor tag helps visually distinguish the
       <a class="navbar-brand" routerLinkActive="active" routerLinkActiveOptions="{exact: true}" routerLink="/"><img src="../assets/fam_logo.ico" alt="Fam" /></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul *ngIf="loggedin; else loggedout" class="nav navbar-nav navbar-right">
+      <ul *ngIf="loggedIn(); else loggedout" class="nav navbar-nav navbar-right">
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/map">Map</a></li>
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/profile">Profile</a></li>
-        <li (click)="onLogout()"routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/login" >Logout</a></li>
+        <li (click)="onLogout()" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a>Logout</a></li>
       </ul>
       <ng-template #loggedout>
         <ul class="nav navbar-nav navbar-right">

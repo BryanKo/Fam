@@ -12,7 +12,10 @@ declare var google: any;
 })
 export class MainComponent implements OnInit {
 
+  // List of all recos in recos db
   recos: any;
+
+  // Lat and lng to center the map
   lat: any;
   lng: any;
 
@@ -23,6 +26,9 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(!localStorage.getItem('user')) {
+      this.router.navigate(['/']);
+    }
     this.recoService.getRecos().subscribe(recos => {
       this.recos = recos;
     });
@@ -33,7 +39,7 @@ export class MainComponent implements OnInit {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': address}, (results, status) => {
         if(status == 'OK') {
-          console.log(results);
+          console.log(results[0].types);
           this.lat = results[0].geometry.location.lat();
           this.lng = results[0].geometry.location.lng();
         }

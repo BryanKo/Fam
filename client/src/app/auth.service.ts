@@ -37,8 +37,13 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://localhost:8080/profile', {headers: headers})
+    return this.http.get('http://localhost:8080/users/profile', {headers: headers})
     .map(res => res.json());
+  }
+
+  // Store user loggedin user info in localStorage
+  storeUserInfo(user) {
+    localStorage.setItem('user', user);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router'
 
 
@@ -9,8 +9,6 @@ import { Router } from '@angular/router'
 })
 export class NavbarComponent implements OnInit {
 
-  loggedin: boolean;
-
   /*
   Dependency injection is a way to supply a new instance of a class with the fully-formed dependencies it requires. Most dependencies are services. Angular uses dependency injection to provide new components with the services they need. Angular can tell which services a component needs by looking at the types of its constructor parameters.
   */
@@ -19,11 +17,20 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loggedin = true;
+
+  }
+
+  loggedIn() {
+    if(localStorage.getItem('user')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   onLogout() {
-    this.loggedin = false;
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }
