@@ -1,6 +1,6 @@
 <div id="main-container" class="row">
   <div class="col-md-4">
-    <app-sidebar (notify)="onNotify($event) "[recosList]="recos"></app-sidebar>
+    <app-sidebar (notify)="onNotify($event)" lat={{this.lat}} lng={{storeLng(lng)}} [recosList]="recos"></app-sidebar>
   </div>
   <div class="col-md-8">
     <app-map [lat]="lat" [lng]="lng" [recosList]="recos"></app-map>

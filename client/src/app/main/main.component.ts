@@ -34,7 +34,20 @@ export class MainComponent implements OnInit {
     });
   }
 
+  // returns the lat
+  storeLat (latloc : number) {
+    // alert(latloc);
+    return latloc;
+  }
+
+  // returns the lng
+  storeLng (lngloc : number) {
+    // alert(latloc);
+    return lngloc;
+  }
+
   onNotify(address: string) {
+    var ctx = this;
     this.mapsApiLoader.load().then(() => {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': address}, (results, status) => {
@@ -42,9 +55,12 @@ export class MainComponent implements OnInit {
           console.log(results[0].types);
           this.lat = results[0].geometry.location.lat();
           this.lng = results[0].geometry.location.lng();
+          alert(this.lat + ", " + this.lng + "\nThis is from main.components.ts");
+          ctx.storeLat(this.lat);
+          ctx.storeLng(this.lng);
         }
       })
     })
   }
-
+w
 }

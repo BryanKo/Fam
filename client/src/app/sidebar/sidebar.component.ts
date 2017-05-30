@@ -10,19 +10,19 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class SidebarComponent implements OnInit {
 
-  name: String;
-  loc: Number;
-  lat: Number;
-  lng: Number;
-  star: Number;
-  categ: String;
-  desc: String;
-  direct: String;
+  name: string;
+  loc: string;
+  // lat: number;
+  // lng: number;
+  star: number;
+  categ: string;
+  desc: string;
+  direct: string;
 
   constructor(
     private recoService: RecoService,
     private flashMessagesService: FlashMessagesService,
-    private router: Router
+    private router: Router,
   ) { }
 
   // Passes address from sidebar -> main -> map
@@ -35,23 +35,39 @@ export class SidebarComponent implements OnInit {
   @Input()
   recosList: any;
 
+  @Input()
+  lat: number;
+
+  @Input()
+  lng: number;
+
   @Output()
   notify: EventEmitter<string> = new EventEmitter<string>();
-
 
   ngOnInit() {
     this.reviewBool = false;
   }
 
+  // brings up the review form
   onReview(){
   	this.reviewBool = true;
   }
 
+  // cancels review
   cancelReview() {
   	this.reviewBool = false;
+    alert("Are you sure you want to cancel your review?");
+    this.clear();
   }
 
+  onSearch() {
+    this.notify.emit(this.address);
+  }
+
+  // submits review
   submitReview() {
+    this.notify.emit(this.loc);  
+
     // swapped name/name and loc/loc so that the name of the location is the adr while the title will be the name of the review
     const reviewLoc = {
       name: this.loc,
@@ -64,6 +80,8 @@ export class SidebarComponent implements OnInit {
       direct: this.direct,
     }
 
+    alert(this.lat + ", " + this.lng + "\nThis is from sidebare.components.ts\nThis is one search behind.");
+
     this.recoService.addReview(reviewLoc).subscribe(data => {
       if(data.success) {
         // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
@@ -75,5 +93,16 @@ export class SidebarComponent implements OnInit {
         this.router.navigate(['/map']);
       }
     });
+    this.clear();
+    this.reviewBool = false;
+  }
+
+  clear() {
+    this.loc = '',
+    this.name = '',
+    this.star = null,
+    this.categ = '',
+    this.desc = '',
+    this.direct = ''
   }
 }
