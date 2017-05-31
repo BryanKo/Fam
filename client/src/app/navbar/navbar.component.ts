@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Router } from '@angular/router'
 
 
@@ -17,6 +17,20 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+  }
+
+  loggedIn() {
+    if(localStorage.getItem('user')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  onLogout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,21 +1,13 @@
 <div class="jumobotron text-center">
-	<p><font size="10">Welcome to Fam!</font></p>
-	<div>
-		<a class="btn btn-primary" routerLink="/register">Register</a>
-		<a class="btn btn-primary" routerLink="/login">Login</a>
-		<p></p>
-		<p></p>
-	</div>
+  <p><font size="10">Welcome to Fam!</font></p>
 </div>
-
-
 <div id="main-container" class="row">
-	<agm-map [latitude]="lat1" [longitude]="lng1" [zoom]="zoom1">
-		<agm-marker [latitude]="lat1" [longitude]="lng1">
-			<agm-info-window>This is UCSC!</agm-info-window>
-		</agm-marker>
-		<agm-marker [latitude]="36.5" [longitude]="122">
-			<agm-info-window>Test</agm-info-window>
-		</agm-marker>
-	</agm-map>
+  <agm-map [latitude]="lat1" [longitude]="lng1" [zoom]="zoom1">
+    <agm-marker [latitude]="lat1" [longitude]="lng1">
+      <agm-info-window>This is UCSC!</agm-info-window>
+    </agm-marker>
+    <agm-marker [latitude]="36.5" [longitude]="122">
+      <agm-info-window>Test</agm-info-window>
+    </agm-marker>
+  </agm-map>
 </div>
