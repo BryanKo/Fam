@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecoService } from '../reco.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,11 +19,14 @@ export class SidebarComponent implements OnInit {
   categ: string;
   desc: string;
   direct: string;
+  user: any;
+  username: string;
 
   constructor(
     private recoService: RecoService,
     private flashMessagesService: FlashMessagesService,
     private router: Router,
+    private authService: AuthService
   ) { }
 
   // Passes address from sidebar -> main -> map
@@ -46,6 +50,12 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.reviewBool = false;
+    if(!localStorage.getItem('user')) {
+      this.router.navigate(['/']);
+    }
+
+    this.user = JSON.parse(localStorage.getItem('user'));
+    // console.log(this.user);
   }
 
   // brings up the review form
@@ -55,21 +65,26 @@ export class SidebarComponent implements OnInit {
 
   // cancels review
   cancelReview() {
-  	this.reviewBool = false;
-    alert("Are you sure you want to cancel your review?");
-    this.clear();
+    if (confirm("Are you sure you want to cancel your review?")) {
+      this.reviewBool = false;
+      this.clear();
+    } else {
+      this.reviewBool = true;
+    }
   }
 
   onSearch() {
     this.notify.emit(this.address);
+    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom search bar");
   }
 
   // submits review
   submitReview() {
-    this.notify.emit(this.loc);  
+    this.notify.emit(this.loc); 
 
     // swapped name/name and loc/loc so that the name of the location is the adr while the title will be the name of the review
     const reviewLoc = {
+      username: this.user.username,
       name: this.loc,
       loc: this.name,
       lat: this.lat,
@@ -80,7 +95,8 @@ export class SidebarComponent implements OnInit {
       direct: this.direct,
     }
 
-    alert(this.lat + ", " + this.lng + "\nThis is from sidebare.components.ts\nThis is one search behind.");
+    // console.log("username: " + this.user.username);
+    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section");
 
     this.recoService.addReview(reviewLoc).subscribe(data => {
       if(data.success) {

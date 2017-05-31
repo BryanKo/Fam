@@ -28,15 +28,22 @@
     </div>
   </form>
 </div>
+<<<<<<< HEAD
 
 <!-- Sidebar feed of reviews -->
+=======
+<!--<div><p>{{user.name}}</p></div>-->
+>>>>>>> master
 <ng-template #reviewFalse>
   <div class="search-results">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let reco of recosList">
-        {{reco.name}}<br>
-        Reviews<br>
-        Picture
+        <h4>{{reco.title}} {{reco.stars}}/5</h4>
+        <h4>{{reco.name}}</h4>
+        <p>Category: {{reco.categ}}</p>
+        <p>Description: {{reco.desc}}</p>
+        <p>Direction: {{reco.direct}}</p>
+        <p>Picture</p>
       </li>
     </ul>
   </div>
@@ -46,6 +53,13 @@
 <div *ngIf="reviewBool; else reviewFalse" class="search-results form-group form-group-sm row">
   <h3 class="text-center">Review Section</h3>
   <form class="form-horizontal">
+    <div class="form-group form-group-sm row">
+      <label class="col-sm-2 control-label">Username:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="user.username" name="user.username" readonly/>
+      </div>
+    </div>
+    <br>
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Title:</label>
       <div class="col-sm-10">

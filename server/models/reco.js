@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const config = require('../config/database');
 
 const RecoSchema = mongoose.Schema({
+  username:{
+    type: String,
+    required: true
+  },
   name:{
     type: String,
     required: true

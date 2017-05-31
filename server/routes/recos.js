@@ -7,6 +7,7 @@ const router = express.Router();
 router.post('/addReco', (req, res) => {
 
   let newReco = new Reco({
+    username: req.body.username,
     name: req.body.loc,
     title: req.body.name,
     lat: req.body.lat,
