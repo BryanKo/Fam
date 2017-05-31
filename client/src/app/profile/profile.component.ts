@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core'; // added EventEmitter
+import { Component, OnInit, EventEmitter, Input } from '@angular/core'; // added EventEmitter
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecoService } from '../reco.service'; // from sidebar.component.ts
@@ -27,6 +27,11 @@ export class ProfileComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) { }
+
+  // Gets the list of all recos from MainComponent
+  @Input()
+  recosList: any;
+
 
   // untouched
   ngOnInit() {
