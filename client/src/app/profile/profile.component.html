@@ -1,8 +1,71 @@
+<head>
+  <style>
+    div.infobox {
+      background-color: black;
+      color: white;
+      margin: 20px 0 20px 0;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+
+<body>
 <h2 class="page-header">Profile</h2>
+<!-- This shows current user/username/email
 <div *ngIf="user">
-  <h2>{{user.name}}</h2>
+  <h3>{{user.name}}</h3>
   <ul class="list-group">
     <li class="list-group-item">Username: {{user.username}}</li>
     <li class="list-group-item">Email: {{user.email}}</li>
   </ul>
 </div>
+-->
+
+
+
+<h3> Reviews </h3>
+<!-- Code below should be drawing from the database; This is hardcoded
+<div class = "infobox">
+    <h3> Review Name </h3>
+
+    <ul class= "Address">
+      <li>Address Code</li>
+      <li> * * * * </li>
+      <li>Category </li>
+      <blockquote> Dummy text </blockquote>
+    </ul>
+    <p> Picture code </p>
+ </div>
+-->
+
+<!-- Format of drawn data
+"name": "UCSC Home",
+"title": " 215 Village Cir, Santa Cruz, CA",
+"lat": 36.9764682,
+"lng": -122.04944060000003,
+"stars": 5,
+"categ": "Other",
+"desc": "Take two of lat lng",
+"direct": "hope this works",
+-->
+
+<ng-template #reviewFalse>
+<div class="search-results">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let reco of reco.reviews">
+      {{reco.name}}<br>
+      {{reco.title}}<br>
+      {{reco.lat}}<br>
+      {{reco.lng}}<br>
+      {{reco.stars}}<br>
+      {{reco.categ}}<br>
+      {{reco.desc}}<br>
+      {{reco.direct}}<br>
+      Picture
+    </li>
+  </ul>
+</div>
+</ng-template>
+
+</body>
