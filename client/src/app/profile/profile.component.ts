@@ -1,11 +1,7 @@
-import { Component, OnInit, EventEmitter, Input } from '@angular/core'; // added EventEmitter
+import { Component, OnInit} from '@angular/core'; // added EventEmitter
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-<<<<<<< HEAD
 import { RecoService } from '../reco.service'; // from sidebar.component.ts
-=======
-import { RecoService } from '../reco.service';
->>>>>>> master
 
 @Component({
   selector: 'app-profile',
@@ -31,12 +27,11 @@ export class ProfileComponent implements OnInit {
     private recoService: RecoService, // added from sidebar.component.ts
     private router: Router,
     private authService: AuthService,
-    private recoService: RecoService
   ) { }
 
   // Gets the list of all recos from MainComponent
-  @Input()
-  recosList: any;
+  //@Input()
+  //recosList: any;
 
 
   // untouched
