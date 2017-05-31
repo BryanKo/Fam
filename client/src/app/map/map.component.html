@@ -1,16 +1,26 @@
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="onMapClick($event)">
   <agm-marker *ngFor="let reco of recosList" [latitude]="reco.lat" [longitude]="reco.lng" (markerClick)="markerClick(reco)">
     <agm-info-window class="info-window">
-      <h3 class="page-header">{{reco.name}}</h3>
+      <h4 class="page-header">
+        {{reco.title}}  
+        <span *ngFor="let i of starArr.slice(0,reco.stars)" class="glyphicon glyphicon-star"></span>
+      </h4>
+      <h4>{{reco.name}}</h4>
+      <p>Category: {{reco.categ}}</p>
+      <p>Description: {{reco.desc}}</p>
+      <p>Direction: {{reco.direct}}</p>
+      <p>Pictures: we may delete this functionality</p>
+      <!--
       <ul class="list-group rev-list">
         <li class="list-group-item" *ngFor="let rev of reco.reviews">
           <p>{{rev.title}}</p>
           <p>
             <span *ngFor="let i of starArr.slice(0,rev.stars)" class="glyphicon glyphicon-star"></span>
           </p>
-          <p>{{rev.body}}</p>
+          <p>{{rev.categ}}</p>
         </li>
       </ul>
+      -->
     </agm-info-window>
   </agm-marker>
 </agm-map>
