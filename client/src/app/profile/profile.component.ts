@@ -1,7 +1,7 @@
-import { Component, OnInit} from '@angular/core'; // added EventEmitter
+import { Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { RecoService } from '../reco.service'; // from sidebar.component.ts
+import { RecoService } from '../reco.service';
 
 @Component({
   selector: 'app-profile',
