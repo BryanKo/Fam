@@ -47,5 +47,4 @@ export class MainComponent implements OnInit {
       })
     })
   }
-w
 }

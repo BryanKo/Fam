@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecoService } from '../reco.service';
@@ -8,11 +8,17 @@ import { RecoService } from '../reco.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
+@Pipe({
+  name: 'userFilter'
+})
+
+
 export class ProfileComponent implements OnInit {
 
   user: any;
-  username: string;
-
+  recos: any;
+  
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -25,6 +31,19 @@ export class ProfileComponent implements OnInit {
     }
 
     this.user = JSON.parse(localStorage.getItem('user'));
+
+    this.recoService.getRecos().subscribe(recos => {
+      this.recos = recos;
+    });
   }
 
+}
+
+export class userFilterPipe implements PipeTransform {
+  transform(items: any[], username: string): any {
+    if (!items || !username) {
+      return items;
+    }
+    return items.filter(item => item.username === username);
+  }
 }
