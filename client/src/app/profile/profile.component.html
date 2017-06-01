@@ -1,4 +1,37 @@
-<h2 class="page-header">Profile</h2>
+<head> 
+<title> Fam | Profile </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<div class ="jumbotron">
+	<h2 class="page-header"> Your FAM Profile </h2>
+
+
+
+<body> 
+<div>
+	<div class="media-left">
+		<img src="/img/joey.jpg" width="200px" height="200px" alt="The image has failed to load">
+	</div>
+	<div class="media-body">
+		<h3 class = "media-heading"> Joey Liu </h3>
+		<p> Test, this is where we can write a simple biography for a profile. </p>
+	</div>
+</div>
+<h5> 
+<form action="/action_page.php">
+	<input type="file" name="pic" accept="image/*">
+	<input type="submit">
+</form>
+</h5>
+</body>
+</div>
+
+<div class="jumbotron">
+	<h3 class="page-header"> Your Reviews </h3>
+
+</div>
+
 <div *ngIf="user">
   <h2>{{user.name}}</h2>
   <ul class="list-group">
