@@ -44,6 +44,12 @@ export class AuthService {
   // Store user loggedin user info in localStorage
   storeUserInfo(user) {
     localStorage.setItem('user', user);
+    var myInt = setInterval(() => {
+      if(!document.hasFocus()) {
+        localStorage.clear();
+        clearInterval(myInt);
+      }
+    }, 600000); // 10 minutes
   }
 
 }
