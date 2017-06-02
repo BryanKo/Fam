@@ -2,18 +2,20 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecoService } from '../reco.service';
+import { FilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  //pipes: [FilterPipe] << THIS PART IS THE ISSUE
 })
 
 export class ProfileComponent implements OnInit {
 
   user: any;
   recos: any;
-  
+
   constructor(
     private router: Router,
     private authService: AuthService,
