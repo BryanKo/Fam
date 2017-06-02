@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   lat: number;
   lng: number;
   zoom: number;
+  starArr = new Array(5);
 
   constructor(
     private recoService: RecoService
