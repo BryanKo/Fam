@@ -80,7 +80,7 @@ export class SidebarComponent implements OnInit {
 
   // submits review
   submitReview() {
-    this.notify.emit(this.loc); 
+    this.notify.emit(this.loc);
 
     // swapped name/name and loc/loc so that the name of the location is the adr while the title will be the name of the review
     const reviewLoc = {

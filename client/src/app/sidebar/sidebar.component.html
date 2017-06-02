@@ -1,3 +1,4 @@
+<!-- Sidebar search and review -->
 <div class="search">
   <form class="form-horizontal">
     <div class="form-group form-group-sm row">
@@ -28,11 +29,13 @@
   </form>
 </div>
 <!--<div><p>{{user.name}}</p></div>-->
+
+<!-- Feed of reviews-->
 <ng-template #reviewFalse>
   <div class="search-results">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let reco of recosList">
-        <h4>{{reco.title}} {{reco.stars}}/5</h4>
+        <h4>{{reco.title}} || {{reco.stars}}/5</h4>
         <h4>{{reco.name}}</h4>
         <p>Category: {{reco.categ}}</p>
         <p>Description: {{reco.desc}}</p>
@@ -42,6 +45,8 @@
     </ul>
   </div>
 </ng-template>
+
+<!-- Review form for user input-->
 <div *ngIf="reviewBool; else reviewFalse" class="search-results form-group form-group-sm row">
   <h3 class="text-center">Review Section</h3>
   <form class="form-horizontal">
@@ -120,7 +125,7 @@
       </div>
     </div>
     <br>
-    
+
     <div class="form-group form-group-sm row">
       <label class="col-sm-2 control-label">Pictures:</label>
       <div class="col-sm-10">
