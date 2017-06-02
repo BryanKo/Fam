@@ -5,4 +5,18 @@
     <li class="list-group-item">Username: {{user.username}}</li>
     <li class="list-group-item">Email: {{user.email}}</li>
   </ul>
+
+  <div class="search-results" *ngFor="let reco of recos">
+    <li class="list-group-item">
+      <ul>
+        <h4>{{reco.title}}</h4>
+        <h4>{{reco.name}}</h4>
+        <p>Category: {{reco.categ}}</p>
+        <p>Description: {{reco.desc}}</p>
+        <p>Direction: {{reco.direct}}</p>
+        <!--<p>Picture</p>-->
+      </ul>
+    </li>
+  </div>
+
 </div>

@@ -42,9 +42,9 @@ export class MainComponent implements OnInit {
           console.log(results[0].types);
           this.lat = results[0].geometry.location.lat();
           this.lng = results[0].geometry.location.lng();
+          console.log(this.lat + ", " + this.lng + "\nThis is from main.components.ts");
         }
       })
     })
   }
-
 }
