@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecoService } from '../reco.service';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-	lat1: number = 36.9914;
-	lng1: number = -122.0609;
-	zoom1: number = 8;
+  recos: any;
+  lat: number;
+  lng: number;
+  zoom: number;
 
-
-	lat2: number = 36.9643;
-	lng2: number = 122.0189;
-
-  constructor() { }
+  constructor(
+    private recoService: RecoService
+  ) { }
 
   ngOnInit() {
+    this.lat = 36.9910;
+    this.lng = -122.0490;
+    this.zoom = 13;
+
+    this.recoService.getRecos().subscribe(recos => {
+      this.recos = recos;
+    });
   }
 
 }

@@ -1,26 +1,25 @@
 #main-container {
-	/*border: solid 1px;*/
-	height: 73vh;
-	/*width: 300vh;	*/
+  /*border: solid 1px;*/
+  height: 73vh;
+  /*width: 300vh;  */
 }
 
 agm-map {
-	height: 100%;
-	width: 208vh;
+  height: 100%;
+  width: 208vh;
 }
 /*.col-md-4, */
 .col-md-8 {
-	
-	padding-left: 0;
-	height: 100%;
+
+  padding-left: 0;
+  height: 100%;
 }
 
-.search {
-	border-bottom: 0;
-	padding: 0;
-	margin: 0;
+.rev-list {
+  width: 500px;
+  overflow-y: scroll;
 }
 
-.form-group {
-	margin: 0;
+.glyphicon-star {
+  color: gold;
 }
