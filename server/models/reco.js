@@ -38,9 +38,6 @@ const RecoSchema = mongoose.Schema({
     type:String,
     required: true
   },
-  review:{
-    type: String,
-  },
 });
 
 const Reco = module.exports = mongoose.model('Reco', RecoSchema);
