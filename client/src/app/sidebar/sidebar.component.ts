@@ -56,6 +56,7 @@ export class SidebarComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user'));
     // console.log(this.user);
+    alert("When submitting a review. Please enter the address first and submit a failed review. Then, proceed to submit your review. Thank you!");
   }
 
   // brings up the review form

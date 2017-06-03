@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecoService } from '../reco.service';
@@ -8,7 +8,7 @@ import { FilterPipe } from '../filter.pipe';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  //pipes: [FilterPipe] << THIS PART IS THE ISSUE
+  // pipes: [FilterPipe]
 })
 
 export class ProfileComponent implements OnInit {
@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private recoService: RecoService
   ) { }
+
 
   ngOnInit() {
     if(!localStorage.getItem('user')) {

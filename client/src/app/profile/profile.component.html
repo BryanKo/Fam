@@ -11,35 +11,25 @@
 
   <div ng-init = "usrn = user.username"></div>
   <!-- testing a filter system-->
+  <!--
   <form id="filter">
     <label>Filter reviews by username:</label>
-    <input type="text" class="form-control" [(ngModel)]="user.username" name = "usrn" readonly/>
+    <input type="text" class="form-control" [(ngModel)]="user.username" name="user.username" readonly/>
   </form>
-
+  -->
   <!-- Display user reviews in a feed template iteratively-->
-    <!--<div ng-switch on= "username">-->
-      <div class="search-results" *ngFor="let reco of recos | filter:usrn">
-        <!--
-        <div ng-switch-when= user.username>-->
-          <li class="list-group-item">
-            <ul>
-              <h4>{{reco.title}} || {{reco.stars}}/5</h4>
-              <h4>{{reco.name}}</h4>
-              <p>Category: {{reco.categ}}</p>
-              <p>Description: {{reco.desc}}</p>
-              <p>Direction: {{reco.direct}}</p>
-              <p>By: {{reco.username}}</p>
-              <!--<p>Picture</p>-->
-            </ul>
-          </li>
-        <!--</div>
-        Theoretically the default should print nothing
-        <div ng-switch-default>
-
-        </div>-->
+      <div class="search-results">
+        <li class="list-group-item" *ngFor="let reco of recos | filter:user.username">
+          <ul>
+            <h4>{{reco.title}} || {{reco.stars}}/5</h4>
+            <h4>{{reco.name}}</h4>
+            <p>Category: {{reco.categ}}</p>
+            <p>Description: {{reco.desc}}</p>
+            <p>Direction: {{reco.direct}}</p>
+            <p>By: {{reco.username}}</p>
+            <!--<p>Picture</p>-->
+          </ul>
+        </li>
       </div>
-
-
   </div>
-
 </div>
