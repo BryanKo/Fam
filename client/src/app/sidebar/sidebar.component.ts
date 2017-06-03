@@ -56,6 +56,7 @@ export class SidebarComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user'));
     // console.log(this.user);
+    // alert("When submitting a review. Please enter the address first and submit a failed review. Then, proceed to submit your review. Thank you!");
   }
 
   // brings up the review form
@@ -102,10 +103,12 @@ export class SidebarComponent implements OnInit {
       if(data.success) {
         // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
         console.log(data.msg);
+        alert("Submission Succesful");
         this.router.navigate(['/map']);
       } else {
         // this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
         console.log(data.msg);
+        alert("Submission Failed");
         this.router.navigate(['/map']);
       }
     });

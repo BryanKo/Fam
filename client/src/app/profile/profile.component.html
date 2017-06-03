@@ -1,45 +1,35 @@
-<div class="container-fluid">
-  <h2 class="page-header">Profile</h2>
+<div class="container-fluid" *ngIf="user">
+  <h2 class="page-header">{{user.name}}'s Profile</h2>
 
   <!-- Display user profile name and email-->
-  <div *ngIf="user">
-    <h2>{{user.name}}</h2>
+  <div >
+    <!--<h2>{{user.name}}</h2>-->
     <ul class="list-group">
       <li class="list-group-item">Username: {{user.username}}</li>
       <li class="list-group-item">Email: {{user.email}}</li>
     </ul>
 
-  <div ng-init = "usrn = user.username"></div>
+  <!--<div ng-init = "usrn = user.username"></div>-->
   <!-- testing a filter system-->
+  <!--
   <form id="filter">
     <label>Filter reviews by username:</label>
-    <input type="text" class="form-control" [(ngModel)]="user.username" name = "usrn" readonly/>
+    <input type="text" class="form-control" [(ngModel)]="user.username" name="user.username" readonly/>
   </form>
-
+  -->
   <!-- Display user reviews in a feed template iteratively-->
-    <!--<div ng-switch on= "username">-->
-      <div class="search-results" *ngFor="let reco of recos | filter:usrn">
-        <!--
-        <div ng-switch-when= user.username>-->
-          <li class="list-group-item">
-            <ul>
-              <h4>{{reco.title}} || {{reco.stars}}/5</h4>
-              <h4>{{reco.name}}</h4>
-              <p>Category: {{reco.categ}}</p>
-              <p>Description: {{reco.desc}}</p>
-              <p>Direction: {{reco.direct}}</p>
-              <p>By: {{reco.username}}</p>
-              <!--<p>Picture</p>-->
-            </ul>
-          </li>
-        <!--</div>
-        Theoretically the default should print nothing
-        <div ng-switch-default>
-
-        </div>-->
-      </div>
-
-
+    <div class="search-results">
+      <li class="list-group-item" *ngFor="let reco of recos | userFilter:user.username">
+        <ul>
+          <h4>{{reco.title}} || {{reco.stars}}/5</h4>
+          <h4>{{reco.name}}</h4>
+          <p>By: {{reco.username}}</p>
+          <p>Category: {{reco.categ}}</p>
+          <p>Description: {{reco.desc}}</p>
+          <p>Direction: {{reco.direct}}</p>
+          <!--<p>Picture</p>-->
+        </ul>
+      </li>
+    </div>
   </div>
-
 </div>
