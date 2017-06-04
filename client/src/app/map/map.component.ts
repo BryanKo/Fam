@@ -37,18 +37,20 @@ export class MapComponent implements OnInit {
     this.zoom = 13;
     this.reviewBool = false;
   }
-/*
+
   onMapClick($event: MouseEvent) {
+    /*
     this.recosList.push({
       "name": "Random",
       "lat": $event.coords.lat,
       "lng": $event.coords.lng,
       "reviews": [{"title": "rev1", "stars": 3}]
     })
+    */
   }
 
   markerClick(reco) {
 
   }
-*/
+
 }
