@@ -16,14 +16,15 @@ const RecoSchema = mongoose.Schema({
   },
   lat:{
     type: Number,
-    // required: true
+    required: true
   },
   lng:{
     type: Number,
-    // required: true
+    required: true
   },
   stars:{
     type: Number,
+    required: true
   },
   categ:{
     type: String,
@@ -35,9 +36,7 @@ const RecoSchema = mongoose.Schema({
   },
   direct:{
     type:String,
-  },
-  review:{
-    type: String,
+    required: true
   },
 });
 

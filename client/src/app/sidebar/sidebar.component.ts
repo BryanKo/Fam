@@ -35,6 +35,10 @@ export class SidebarComponent implements OnInit {
   // Flag to toggle review form
   reviewBool: boolean;
 
+  // Get correct location
+  currLocBool: boolean = false;
+  currLocCnt: number = 0;
+
   // Gets the list of all recos from MainComponent
   @Input()
   recosList: any;
@@ -56,6 +60,7 @@ export class SidebarComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('user'));
     // console.log(this.user);
+    // alert("When submitting a review. Please enter the address first and submit a failed review. Then, proceed to submit your review. Thank you!");
   }
 
   // brings up the review form
@@ -75,12 +80,21 @@ export class SidebarComponent implements OnInit {
 
   onSearch() {
     this.notify.emit(this.address);
-    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom search bar");
+    // console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom search bar");
+  }
+
+  currLoc() {
+    this.notify.emit(this.loc);
+    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section");
+    // console.log(this.loc + " " + this.star);
+    this.currLocCnt++;
+    if (this.currLocCnt >= 2) this.currLocBool = true;
+    console.log(this.currLocCnt + " " + this.currLocBool);
   }
 
   // submits review
   submitReview() {
-    this.notify.emit(this.loc);
+    // this.notify.emit(this.loc);
 
     // swapped name/name and loc/loc so that the name of the location is the adr while the title will be the name of the review
     const reviewLoc = {
@@ -94,23 +108,31 @@ export class SidebarComponent implements OnInit {
       desc: this.desc,
       direct: this.direct,
     }
-
+    // console.log(this.currLocCnt + " " + this.currLocBool);
     // console.log("username: " + this.user.username);
-    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section");
+    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section #2");
 
-    this.recoService.addReview(reviewLoc).subscribe(data => {
-      if(data.success) {
-        // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
-        console.log(data.msg);
-        this.router.navigate(['/map']);
-      } else {
-        // this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
-        console.log(data.msg);
-        this.router.navigate(['/map']);
-      }
-    });
-    this.clear();
-    this.reviewBool = false;
+    if (this.currLocBool == false) {
+      alert("Please click 'Verify' under the Review Section");
+    } else {
+      this.recoService.addReview(reviewLoc).subscribe(data => {
+        if(data.success) {
+          // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
+          console.log(data.msg);
+          alert("Submission Succesful");
+          this.router.navigate(['/map']);
+        } else {
+          // this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
+          console.log(data.msg);
+          alert("Submission Failed");
+          this.router.navigate(['/map']);
+        }
+      });
+      this.currLocCnt = 0;
+      this.currLocBool = false;
+      this.clear();
+      this.reviewBool = false;
+    }
   }
 
   clear() {

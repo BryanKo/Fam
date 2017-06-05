@@ -19,7 +19,7 @@ router.post('/addReco', (req, res) => {
   });
 
   Reco.addReco(newReco, (err, user) => {
-    console.log(newReco.name);
+    // console.log(newReco.name);
     if(err) {
       res.json({success: false, msg: 'Failed to add new Reco'});
     } else {
