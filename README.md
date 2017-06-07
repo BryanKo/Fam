@@ -11,6 +11,7 @@ npm install
 ```
 
 ### Run
+Navigate to `/client` directory and run,
 ```bash
 ng serve
 ```
