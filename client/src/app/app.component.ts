@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     var myHeight = $(window).height() - $('#myNav').height();
-    $('#my-container').height(myHeight);
+    $('#app-container').height(myHeight);
   }
 
 }

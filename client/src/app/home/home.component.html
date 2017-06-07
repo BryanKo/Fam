@@ -1,8 +1,8 @@
-<div id="main-container">
-  <div class="jumobotron text-center" id="main-title">
+<div id="home-container">
+  <div class="jumobotron text-center" id="home-title">
     <p><font size="10">Welcome to Fam!</font></p>
   </div>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="false" [disableDoubleClickZoom]="true">
     <agm-marker *ngFor="let reco of recos" [latitude]="reco.lat" [longitude]="reco.lng">
       <agm-info-window class="info-window">
         <h4 class="page-header">
@@ -13,18 +13,6 @@
         <p>Category: {{reco.categ}}</p>
         <p>Description: {{reco.desc}}</p>
         <p>Direction: {{reco.direct}}</p>
-        <!--<p>Pictures: we may delete this functionality</p>-->
-        <!--
-        <ul class="list-group rev-list">
-          <li class="list-group-item" *ngFor="let rev of reco.reviews">
-            <p>{{rev.title}}</p>
-            <p>
-              <span *ngFor="let i of starArr.slice(0,rev.stars)" class="glyphicon glyphicon-star"></span>
-            </p>
-            <p>{{rev.categ}}</p>
-          </li>
-        </ul>
-        -->
       </agm-info-window>
     </agm-marker>
   </agm-map>
