@@ -1,14 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'userFilter'
+  name: 'userFilter',
+  pure: false
 })
-export class FilterPipe implements PipeTransform {
+export class MyFilterPipe implements PipeTransform {
 
   transform(reviews: any, usrn: any): any {
-    // check if search term is undefined
+    // Check if search term is undefined
     if (usrn === undefined) return reviews;
-    // return updated review list
+    if (reviews === undefined) return [];
+
+    // Return updated review list
     return reviews.filter(function(review){
       return review.username.toLowerCase().includes(usrn.toLowerCase());
     })
