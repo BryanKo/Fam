@@ -2,19 +2,18 @@ import { Component, OnInit, Input, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RecoService } from '../reco.service';
-import { FilterPipe } from '../filter.pipe';
+import { MyFilterPipe } from '../filter.pipe';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
-  // pipes: [FilterPipe]
 })
 
 export class ProfileComponent implements OnInit {
 
   user: any;
-  recos: any;
+  recos: any = [];
 
   constructor(
     private router: Router,

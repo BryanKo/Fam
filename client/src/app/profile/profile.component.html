@@ -2,34 +2,22 @@
   <h2 class="page-header">{{user.name}}'s Profile</h2>
 
   <!-- Display user profile name and email-->
-  <div >
-    <!--<h2>{{user.name}}</h2>-->
+  <div>
     <ul class="list-group">
       <li class="list-group-item">Username: {{user.username}}</li>
       <li class="list-group-item">Email: {{user.email}}</li>
     </ul>
 
-  <!--<div ng-init = "usrn = user.username"></div>-->
-  <!-- testing a filter system-->
-  <!--
-  <form id="filter">
-    <label>Filter reviews by username:</label>
-    <input type="text" class="form-control" [(ngModel)]="user.username" name="user.username" readonly/>
-  </form>
-  -->
   <!-- Display user reviews in a feed template iteratively-->
-    <div class="search-results">
-      <li class="list-group-item" *ngFor="let reco of recos | userFilter:user.username">
-        <ul>
-          <h4>{{reco.title}} || {{reco.stars}}/5</h4>
-          <h4>{{reco.name}}</h4>
-          <p>By: {{reco.username}}</p>
-          <p>Category: {{reco.categ}}</p>
-          <p>Description: {{reco.desc}}</p>
-          <p>Direction: {{reco.direct}}</p>
-          <!--<p>Picture</p>-->
-        </ul>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let reco of (recos | userFilter: user.username)">
+        <h4>{{reco.title}} || {{reco.stars}}/5</h4>
+        <h4>{{reco.name}}</h4>
+        <p>By: {{reco.username}}</p>
+        <p>Category: {{reco.categ}}</p>
+        <p>Description: {{reco.desc}}</p>
+        <p>Direction: {{reco.direct}}</p>
       </li>
-    </div>
+    </ul>
   </div>
 </div>
