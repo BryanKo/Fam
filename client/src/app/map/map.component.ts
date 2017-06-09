@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MouseEvent } from '@agm/core';
+import { MouseEvent, MapsAPILoader } from '@agm/core';
 
 declare var google: any;
 
@@ -28,7 +28,7 @@ export class MapComponent implements OnInit {
 
 
   constructor(
-
+    private mapsApiLoader: MapsAPILoader,
   ) { }
 
   ngOnInit() {
@@ -36,20 +36,21 @@ export class MapComponent implements OnInit {
     this.lng = -122.0490;
     this.zoom = 13;
     this.reviewBool = false;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      });
+    }
   }
 
-  onMapClick($event: MouseEvent) {
-    /*
-    this.recosList.push({
-      "name": "Random",
-      "lat": $event.coords.lat,
-      "lng": $event.coords.lng,
-      "reviews": [{"title": "rev1", "stars": 3}]
-    })
-    */
+
+  mapClick($event: MouseEvent) {
+
   }
 
-  markerClick(reco) {
+  markerClick($event: MouseEvent) {
 
   }
 

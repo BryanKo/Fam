@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { RecoService } from '../reco.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../auth.service';
+import { RecoService } from '../reco.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,21 +13,12 @@ export class SidebarComponent implements OnInit {
 
   name: string;
   loc: string;
-  // lat: number;
-  // lng: number;
   star: number;
   categ: string;
   desc: string;
   direct: string;
   user: any;
   username: string;
-
-  constructor(
-    private recoService: RecoService,
-    private flashMessagesService: FlashMessagesService,
-    private router: Router,
-    private authService: AuthService
-  ) { }
 
   // Passes address from sidebar -> main -> map
   address: string;
@@ -52,23 +43,27 @@ export class SidebarComponent implements OnInit {
   @Output()
   notify: EventEmitter<string> = new EventEmitter<string>();
 
+  constructor(
+    private recoService: RecoService,
+    private flashMessagesService: FlashMessagesService,
+    private router: Router,
+    private authService: AuthService
+  ) { }
+
   ngOnInit() {
-    this.reviewBool = false;
     if(!localStorage.getItem('user')) {
       this.router.navigate(['/']);
     }
-
+    this.reviewBool = false;
     this.user = JSON.parse(localStorage.getItem('user'));
-    // console.log(this.user);
-    // alert("When submitting a review. Please enter the address first and submit a failed review. Then, proceed to submit your review. Thank you!");
   }
 
-  // brings up the review form
+  // Brings up the review form
   onReview(){
   	this.reviewBool = true;
   }
 
-  // cancels review
+  // Cancels review
   cancelReview() {
     if (confirm("Are you sure you want to cancel your review?")) {
       this.reviewBool = false;
@@ -78,21 +73,7 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  onSearch() {
-    this.notify.emit(this.address);
-    // console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom search bar");
-  }
-
-  currLoc() {
-    this.notify.emit(this.loc);
-    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section");
-    // console.log(this.loc + " " + this.star);
-    this.currLocCnt++;
-    if (this.currLocCnt >= 2) this.currLocBool = true;
-    console.log(this.currLocCnt + " " + this.currLocBool);
-  }
-
-  // submits review
+  // Submits review
   submitReview() {
     // this.notify.emit(this.loc);
 
@@ -117,14 +98,10 @@ export class SidebarComponent implements OnInit {
     } else {
       this.recoService.addReview(reviewLoc).subscribe(data => {
         if(data.success) {
-          // this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
-          console.log(data.msg);
-          alert("Submission Succesful");
+          this.flashMessagesService.show('Review added', {cssClass: 'alert-success', timeout: 3000});
           this.router.navigate(['/map']);
         } else {
-          // this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
-          console.log(data.msg);
-          alert("Submission Failed");
+          this.flashMessagesService.show('Review not added', {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/map']);
         }
       });
@@ -133,6 +110,19 @@ export class SidebarComponent implements OnInit {
       this.clear();
       this.reviewBool = false;
     }
+  }
+
+  // When addres is searched, pass this.address -> main -> map
+  onSearch() {
+    this.notify.emit(this.address);
+  }
+
+  currLoc() {
+    this.notify.emit(this.loc);
+    console.log(this.lat + ", " + this.lng + "\nThis is from sidebar.components.ts\nFrom review section");
+    this.currLocCnt++;
+    if (this.currLocCnt >= 2) this.currLocBool = true;
+    console.log(this.currLocCnt + " " + this.currLocBool);
   }
 
   clear() {

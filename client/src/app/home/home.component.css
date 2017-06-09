@@ -4,19 +4,67 @@
   margin: 0;
 }
 
+#home-main {
+  background-image: url("../../assets/home-bgd.jpg");
+  height: 93%;
+  position: relative;
+}
+
+#home-effect {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+}
+
+#home-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #home-title {
-  height: 10%;
+  font-size: 60px;
+  font-family: monospace;
+  color: white;
+  text-align: center;
+}
+
+#home-search {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+#home-map {
+  height: 100%;
 }
 
 agm-map {
-  height: 90%;
+  height: 100%;
 }
 
 .rev-list {
-  width: 500px;
-  overflow-y: scroll;
+  width: 50vh;
 }
 
 .glyphicon-star {
   color: gold;
+}
+
+.input-group {
+  height: 100%;
+}
+
+.form-control {
+  height: 100%;
+  border: none;
+}
+
+.input-group-addon {
+  background-color: white;
+}
+
+.input-group-addon button {
+  background-color: white;
+  border: none;
 }

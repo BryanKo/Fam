@@ -2,9 +2,8 @@ agm-map {
   height: 100%;
 }
 
-.rev-list {
-  width: 500px;
-  overflow-y: scroll;
+.rev {
+  width: 50vh;
 }
 
 .glyphicon-star {

@@ -39,10 +39,9 @@ export class MainComponent implements OnInit {
       var geocoder = new google.maps.Geocoder();
       geocoder.geocode({'address': address}, (results, status) => {
         if(status == 'OK') {
-          console.log(results[0].types);
+          console.log(results[0].formatted_address);
           this.lat = results[0].geometry.location.lat();
           this.lng = results[0].geometry.location.lng();
-          console.log(this.lat + ", " + this.lng + "\nThis is from main.components.ts");
         }
       })
     })

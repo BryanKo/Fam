@@ -1,17 +1,25 @@
 .search {
-  border-bottom: solid 1px;
-  padding: 7px;
-  margin: 5px;
-  height: 20%;
+  border-bottom: solid lightgray 1px;
+  padding: 10px;
+  height: 15%;
 }
 
-.form-group {
+.recos-list {
   margin: 0;
+  height: 85%;
+  overflow-y: scroll;
 }
 
-.search-results {
-  padding: 7px;
-  margin: 5px;
-  height: 78%;
+.recos-list button {
+  border-radius: 0;
+}
+
+.reco-form {
+  padding: 5px;
+  height: 85%;
   overflow-y: scroll;
+}
+
+.reco-form .form-group {
+  margin: 0;
 }

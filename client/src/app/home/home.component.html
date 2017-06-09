@@ -1,19 +1,36 @@
 <div id="home-container">
-  <div class="jumobotron text-center" id="home-title">
-    <p><font size="10">Welcome to Fam!</font></p>
+  <div id="home-main">
+    <div id="home-effect"></div>
+    <div id="home-content">
+      <div id="home-title">
+        Welcome to Fam
+      </div>
+      <div id="home-search">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control" placeholder="Search for any location" [(ngModel)]="address" name="address">
+          <span class="input-group-addon">
+            <button (click)="onSearch()">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
-  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="false" [disableDoubleClickZoom]="true">
-    <agm-marker *ngFor="let reco of recos" [latitude]="reco.lat" [longitude]="reco.lng">
-      <agm-info-window class="info-window">
-        <h4 class="page-header">
-          {{reco.title}}
-          <span *ngFor="let i of starArr.slice(0,reco.stars)" class="glyphicon glyphicon-star"></span>
-        </h4>
-        <h4>{{reco.name}}</h4>
-        <p>Category: {{reco.categ}}</p>
-        <p>Description: {{reco.desc}}</p>
-        <p>Direction: {{reco.direct}}</p>
-      </agm-info-window>
-    </agm-marker>
-  </agm-map>
+  <div id="home-map">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [scrollwheel]="false" [disableDoubleClickZoom]="true">
+      <agm-marker *ngFor="let reco of recos" [latitude]="reco.lat" [longitude]="reco.lng">
+        <agm-info-window class="info-window">
+          <h4 class="page-header">
+            {{reco.title}}
+            <span *ngFor="let i of starArr.slice(0,reco.stars)" class="glyphicon glyphicon-star"></span>
+          </h4>
+          <h4>{{reco.name}}</h4>
+          <p>Category: {{reco.categ}}</p>
+          <p>Description: {{reco.desc}}</p>
+          <p>Direction: {{reco.direct}}</p>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </div>
 </div>

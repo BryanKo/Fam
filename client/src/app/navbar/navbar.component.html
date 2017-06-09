@@ -20,7 +20,7 @@ The RouterLinkActive directive on each anchor tag helps visually distinguish the
       <ul *ngIf="loggedIn(); else loggedout" class="nav navbar-nav navbar-right">
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/map">Map</a></li>
         <li routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="/profile">Profile</a></li>
-        <li (click)="onLogout()" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a>Logout</a></li>
+        <li (click)="onLogout()" routerLinkActive="active" routerLinkActiveOptions="{exact: true}"><a routerLink="#">Logout</a></li>
       </ul>
       <ng-template #loggedout>
         <ul class="nav navbar-nav navbar-right">

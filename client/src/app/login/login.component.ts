@@ -1,7 +1,6 @@
-/* Controls navigation and console log messages */
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -16,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -37,10 +37,11 @@ export class LoginComponent implements OnInit {
     */
     this.authService.loginUser(user).subscribe(data => {
       if(data.success) {
+        this.flashMessagesService.show('Logged in', {cssClass: 'alert-success', timeout: 3000});
         this.authService.storeUserInfo(JSON.stringify(data.user));
         this.router.navigate(['/map']);
       } else {
-        alert("Invalid username or password. Please try again.");
+        this.flashMessagesService.show('Login failed. Please try again', {cssClass: 'alert-danger', timeout: 3000});
         this.router.navigate(['/login']);
       }
     });
