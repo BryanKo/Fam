@@ -22,7 +22,7 @@
       <agm-marker *ngFor="let reco of recos" [latitude]="reco.lat" [longitude]="reco.lng">
         <agm-info-window class="info-window">
           <h4 class="page-header">
-            {{reco.title}}
+            {{reco.title}} <br>
             <span *ngFor="let i of starArr.slice(0,reco.stars)" class="glyphicon glyphicon-star"></span>
           </h4>
           <h4>{{reco.name}}</h4>

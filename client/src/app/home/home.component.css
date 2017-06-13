@@ -6,8 +6,11 @@
 
 #home-main {
   background-image: url("../../assets/home-bgd.jpg");
-  height: 93%;
-  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height:94.5%;
+  position: center;
 }
 
 #home-effect {
