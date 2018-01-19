@@ -18,7 +18,7 @@ export class RecoService {
     */
     // connect to server with http://ec2-107-23-73-244.compute-1.amazonaws.com
     // connect ot server with http://localhost
-    return this.http.post('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/recos/addReco', reviewLoc, {headers: headers})
+    return this.http.post('http://localhost:8080/recos/addReco', reviewLoc, {headers: headers})
     .map(res => res.json());
   }
 
@@ -26,7 +26,7 @@ export class RecoService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/recos/getReco', {headers: headers})
+    return this.http.get('http://localhost:8080/recos/getReco', {headers: headers})
     .map(res => res.json());
   }
 

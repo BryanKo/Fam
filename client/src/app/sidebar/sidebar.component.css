@@ -7,7 +7,7 @@
 .recos-list {
   margin: 0;
   height: 85%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .recos-list button {
@@ -17,7 +17,7 @@
 .reco-form {
   padding: 5px;
   height: 85%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .reco-form .form-group {

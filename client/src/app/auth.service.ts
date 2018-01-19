@@ -21,7 +21,7 @@ export class AuthService {
     */
     // connect to server with http://ec2-107-23-73-244.compute-1.amazonaws.com
     // connect ot server with http://localhost
-    return this.http.post('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/users/register', user, {headers: headers})
+    return this.http.post('http://localhost:8080/users/register', user, {headers: headers})
     .map(res => res.json());
   }
 
@@ -30,7 +30,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.post('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/users/authenticate', user, {headers: headers})
+    return this.http.post('http://localhost:8080/users/authenticate', user, {headers: headers})
     .map(res => res.json());
   }
 
@@ -39,7 +39,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
-    return this.http.get('http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/users/profile', {headers: headers})
+    return this.http.get('http://localhost:8080/users/profile', {headers: headers})
     .map(res => res.json());
   }
 
