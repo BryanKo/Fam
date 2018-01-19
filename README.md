@@ -1,6 +1,6 @@
 # Fam
 This is a web application to help users decide on nearby activities/events/food/etc. with the aid of community reviews. Become part of the community by contributing your own reviews as well!
-### ~~[Demo]~~(http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/)
+### ~~[Demo](http://ec2-107-23-73-244.compute-1.amazonaws.com:8080/)~~
 Server has been taken down due to cost. The only way to run the web application is to run locally. Sorry for the inconvenience.
 
 ## Getting Started
